@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {addArtist} from '../actions/artists'
 
 class ArtistForm extends Component {
   constructor (props) {
@@ -17,7 +19,10 @@ class ArtistForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
+    this.props.dispatch(addArtist({
+      name: this.state.name,
+      genre: this.state.genre
+    }))
     this.setState({ name: '', genre: '' })
   }
 
@@ -57,4 +62,8 @@ class ArtistForm extends Component {
   }
 }
 
-export default ArtistForm
+const mapStateToProps = (state) => ({artists: state.artists})
+
+const mapDispatchToProps = (dispatch) => ({dispatch})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistForm)

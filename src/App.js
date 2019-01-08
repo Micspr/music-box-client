@@ -6,13 +6,6 @@ import ArtistForm from './components/ArtistForm'
 class App extends Component {
   constructor () {
     super()
-    this.state = {
-      artists: [
-        { id: 1, name: 'Drake', genre: 'hip-hop' },
-        { id: 2, name: 'Fugees', genre: 'hip-hop' },
-        { id: 3, name: 'A Tribe Called Quest', genre: 'hip-hop' }
-      ]
-    }
   }
 
   render() {
@@ -23,7 +16,7 @@ class App extends Component {
           <div className="row">
             <div className="col">
               <h2 className="h4 text-center">All Artists</h2>
-              <ArtistList artists={ this.state.artists } />
+              <ArtistList />
             </div>
             <div className="col-4">
               <h2 className="h4 text-center">Add a new Artist</h2>
